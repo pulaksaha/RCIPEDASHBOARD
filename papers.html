@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Research Papers – RCPIE Portal · CMR Institute of Technology · AY 2023–24</title>
+  <meta name="description" content="Searchable list of journal and conference papers published by CMR Institute of Technology faculty in AY 2023–24."/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <nav id="navbar" role="navigation"></nav>
+
+  <main class="page-wrapper">
+    <div class="section-header">
+      <div>
+        <h1 class="page-title">Research Papers</h1>
+        <p class="page-subtitle">Journal and conference publications · AY 2023–24</p>
+      </div>
+      <button class="btn btn-primary" id="exportCsvBtn" aria-label="Export currently filtered papers as CSV">
+        ⬇ Export CSV
+      </button>
+    </div>
+
+    <!-- Summary tiles -->
+    <div class="kpi-grid" style="grid-template-columns:repeat(3,1fr);margin-bottom:20px" id="paperSummary">
+      <div class="kpi-tile"><div class="kpi-label">Total Papers</div><div class="kpi-value">403</div></div>
+      <div class="kpi-tile"><div class="kpi-label">Journal Papers</div><div class="kpi-value" id="journalCount">—</div></div>
+      <div class="kpi-tile"><div class="kpi-label">Conference Papers</div><div class="kpi-value" id="confCount">—</div></div>
+    </div>
+
+    <!-- Filters -->
+    <div class="filter-bar" role="search" aria-label="Filter research papers">
+      <input type="text" id="paperSearch" placeholder="Search faculty or title…" aria-label="Search by faculty name or paper title"/>
+      <select id="deptFilter" aria-label="Filter by department">
+        <option value="">All Departments</option>
+      </select>
+      <div class="filter-pills" id="indexingPills" role="group" aria-label="Filter by indexing type">
+        <span>Indexing:</span>
+      </div>
+    </div>
+
+    <div class="section-header" style="margin-bottom:8px">
+      <span class="count-chip" id="paperCount">Showing — papers</span>
+    </div>
+
+    <div class="table-wrap" id="papersTableWrap">
+      <div class="spinner-overlay"><div class="spinner"></div><span class="spinner-label">Loading papers from Google Sheets…</span></div>
+    </div>
+  </main>
+
+  <footer id="footer" role="contentinfo"></footer>
+
+  <script src="app.js"></script>
+  <script src="papers.js"></script>
+</body>
+</html>

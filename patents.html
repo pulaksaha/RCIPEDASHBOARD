@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Patents – RCPIE Portal · CMR Institute of Technology · AY 2023–24</title>
+  <meta name="description" content="Patent portfolio of CMR Institute of Technology — published, filed and granted patents for AY 2023–24."/>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    .patent-app-no { font-size: 11px; color: var(--text-light); font-family: monospace; }
+  </style>
+</head>
+<body>
+  <nav id="navbar" role="navigation"></nav>
+
+  <main class="page-wrapper">
+    <h1 class="page-title">Patents</h1>
+    <p class="page-subtitle">Patent portfolio · AY 2023–24</p>
+
+    <!-- Summary tiles -->
+    <div class="kpi-grid" id="patentSummary" style="margin-bottom:20px">
+      <div class="kpi-tile"><div class="kpi-label">Total Patents</div><div class="kpi-value">218</div></div>
+      <div class="kpi-tile"><div class="kpi-label">Published</div><div class="kpi-value" id="pubCount">—</div></div>
+      <div class="kpi-tile"><div class="kpi-label">Filed</div><div class="kpi-value" id="filedCount">—</div></div>
+      <div class="kpi-tile"><div class="kpi-label">Granted</div><div class="kpi-value" id="grantedCount">2</div></div>
+    </div>
+
+    <!-- Filters -->
+    <div class="filter-bar" role="search" aria-label="Filter patents">
+      <input type="text" id="patentSearch" placeholder="Search inventor or title…" aria-label="Search by inventor name or patent title"/>
+      <select id="patentDeptFilter" aria-label="Filter by department">
+        <option value="">All Departments</option>
+      </select>
+      <div class="filter-pills" id="patentStatusPills" role="group" aria-label="Filter by patent status">
+        <span>Status:</span>
+      </div>
+    </div>
+
+    <div class="section-header" style="margin-bottom:12px">
+      <span class="count-chip" id="patentCount">Showing — patents</span>
+    </div>
+
+    <div id="patentGrid" class="patent-grid">
+      <div class="spinner-overlay" style="grid-column:1/-1"><div class="spinner"></div><span class="spinner-label">Loading patents from Google Sheets…</span></div>
+    </div>
+  </main>
+
+  <footer id="footer" role="contentinfo"></footer>
+
+  <script src="app.js"></script>
+  <script src="patents.js"></script>
+</body>
+</html>

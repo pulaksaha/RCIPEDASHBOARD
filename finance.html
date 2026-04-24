@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Finance – RCPIE Portal · CMR Institute of Technology · AY 2023–24</title>
+  <meta name="description" content="Consultancy receipts, entrepreneurship E-load, and sanction summaries for CMR Institute of Technology AY 2023–24."/>
+  <link rel="stylesheet" href="style.css"/>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+  <style>
+    .finance-section-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text);
+      margin: 32px 0 16px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--brand-bg);
+    }
+  </style>
+</head>
+<body>
+  <nav id="navbar" role="navigation"></nav>
+
+  <main class="page-wrapper">
+    <h1 class="page-title">Finance Overview</h1>
+    <p class="page-subtitle">Consultancy, Entrepreneurship, and Sanction Summary · AY 2023–24</p>
+
+    <!-- ── SECTION A: Consultancy ── -->
+    <h2 class="finance-section-title">A · Consultancy</h2>
+
+    <!-- Consultancy summary -->
+    <div class="kpi-grid-sm" style="margin-bottom:20px">
+      <div class="kpi-tile">
+        <div class="kpi-label">Total Received</div>
+        <div class="kpi-value">₹28.5L</div>
+        <div class="progress-wrap">
+          <div class="progress-label"><span>vs ₹50.22L target</span><span>57%</span></div>
+          <div class="progress-track"><div class="progress-fill" style="width:57%;background:#1D9E75"></div></div>
+        </div>
+      </div>
+      <div class="kpi-tile">
+        <div class="kpi-label">Top Department</div>
+        <div class="kpi-value" style="font-size:20px">ECE</div>
+        <div class="kpi-sub">₹18,52,965 generated</div>
+      </div>
+      <div class="kpi-tile">
+        <div class="kpi-label">Depts with ₹0</div>
+        <div class="kpi-value" style="font-size:20px">3</div>
+        <div class="kpi-sub">PHY, AIDS, CV</div>
+      </div>
+    </div>
+
+    <div class="chart-card" style="margin-bottom:16px">
+      <h3>Consultancy Amount by Department (₹)</h3>
+      <div class="chart-canvas-wrap" style="height:320px;position:relative">
+        <canvas id="consultancyChart" aria-label="Horizontal bar chart of consultancy amounts by department"></canvas>
+      </div>
+    </div>
+
+    <!-- Faculty Consultancy Table -->
+    <div class="section-header" style="margin-top:8px">
+      <h3 class="section-title">Faculty-Level Consultancy</h3>
+      <input type="text" id="consultancySearch" placeholder="Search faculty or work title…" aria-label="Search consultancy entries"
+             style="padding:6px 12px;border:1px solid var(--border);border-radius:4px;font-size:13px"/>
+    </div>
+    <div class="table-wrap" id="consultancyTableWrap" style="margin-bottom:32px">
+      <div class="spinner-overlay"><div class="spinner"></div><span class="spinner-label">Loading consultancy data…</span></div>
+    </div>
+
+    <!-- ── SECTION B: E-load ── -->
+    <h2 class="finance-section-title">B · E-load (Entrepreneurship)</h2>
+
+    <div class="kpi-grid-sm" style="margin-bottom:20px">
+      <div class="kpi-tile">
+        <div class="kpi-label">Total Received</div>
+        <div class="kpi-value">₹4.5L</div>
+        <div class="progress-wrap">
+          <div class="progress-label"><span>vs ₹17L target</span><span>26%</span></div>
+          <div class="progress-track"><div class="progress-fill" style="width:26%;background:#378ADD"></div></div>
+        </div>
+      </div>
+      <div class="kpi-tile">
+        <div class="kpi-label">Top Department</div>
+        <div class="kpi-value" style="font-size:20px">ECE</div>
+        <div class="kpi-sub">₹1,78,000 revenue</div>
+      </div>
+      <div class="kpi-tile">
+        <div class="kpi-label">Depts with ₹0</div>
+        <div class="kpi-value" style="font-size:20px">3</div>
+        <div class="kpi-sub">MBA, AIML, AIDS</div>
+      </div>
+    </div>
+
+    <div class="chart-card" style="margin-bottom:16px">
+      <h3>E-load Revenue by Department (₹)</h3>
+      <div class="chart-canvas-wrap" style="height:300px;position:relative">
+        <canvas id="eloadChart" aria-label="Horizontal bar chart of entrepreneurship E-load revenue by department"></canvas>
+      </div>
+    </div>
+
+    <div class="table-wrap" id="eloadTableWrap" style="margin-bottom:32px">
+      <div class="spinner-overlay"><div class="spinner"></div><span class="spinner-label">Loading entrepreneurship data…</span></div>
+    </div>
+
+    <!-- ── SECTION C: Proposal Sanction Summary ── -->
+    <h2 class="finance-section-title">C · Proposals Sanction Summary</h2>
+
+    <div class="kpi-grid" style="margin-bottom:24px">
+      <div class="kpi-tile">
+        <div class="kpi-label">MSME Sanction</div>
+        <div class="kpi-value" style="font-size:20px">₹60L</div>
+        <div class="kpi-sub">₹60,00,000</div>
+      </div>
+      <div class="kpi-tile">
+        <div class="kpi-label">Mentor-Mentee</div>
+        <div class="kpi-value" style="font-size:20px">₹2.25L</div>
+        <div class="kpi-sub">₹2,25,000</div>
+      </div>
+      <div class="kpi-tile">
+        <div class="kpi-label">Amount to College</div>
+        <div class="kpi-value" style="font-size:20px">₹43.2L</div>
+        <div class="kpi-sub">₹43,20,358</div>
+      </div>
+      <div class="kpi-tile">
+        <div class="kpi-label">Kapila</div>
+        <div class="kpi-value" style="font-size:20px">₹39,400</div>
+        <div class="kpi-sub">Kapila scheme</div>
+      </div>
+    </div>
+
+    <div class="kpi-tile" style="background:var(--brand-bg);border-color:var(--brand);max-width:300px">
+      <div class="kpi-label" style="color:var(--brand-dark)">Grand Total Sanctioned</div>
+      <div class="kpi-value" style="color:var(--brand-dark)">₹105.85L</div>
+      <div class="kpi-sub">₹1,05,84,758</div>
+    </div>
+  </main>
+
+  <footer id="footer" role="contentinfo"></footer>
+
+  <script src="app.js"></script>
+  <script src="finance.js"></script>
+</body>
+</html>

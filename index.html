@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dashboard – RCPIE Portal · CMR Institute of Technology · AY 2023–24</title>
+  <meta name="description" content="RCPIE Research Portal Dashboard for CMR Institute of Technology, Academic Year 2023–24. Live KPIs, department achievement, and pending items."/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <nav id="navbar" role="navigation"></nav>
+
+  <main class="page-wrapper" id="main">
+    <h1 class="page-title">Research &amp; Innovation Dashboard</h1>
+    <p class="page-subtitle">CMR Institute of Technology · Academic Year 2023–24 · Live data from Google Sheets</p>
+
+    <!-- KPI Tiles -->
+    <div class="kpi-grid" id="kpiTiles" aria-label="Key Performance Indicators">
+      <div class="kpi-tile"><div class="kpi-icon">📄</div><div class="kpi-label">Total Research Papers</div><div class="kpi-value">403</div><div class="kpi-sub">AY 2023–24</div></div>
+      <div class="kpi-tile"><div class="kpi-icon">💡</div><div class="kpi-label">Total Patents</div><div class="kpi-value">218</div><div class="kpi-sub">Filed / Published / Granted</div></div>
+      <div class="kpi-tile"><div class="kpi-icon">💰</div><div class="kpi-label">Proposals Sanctioned</div><div class="kpi-value">₹106L</div><div class="kpi-sub">Total Sanctioned Amount</div></div>
+      <div class="kpi-tile"><div class="kpi-icon">👩‍🏫</div><div class="kpi-label">Faculty Tracked</div><div class="kpi-value">195</div><div class="kpi-sub">Across 13 Departments</div></div>
+    </div>
+
+    <div class="kpi-grid-sm" id="kpiSmall">
+      <div class="kpi-tile"><div class="kpi-label">Consultancy Received</div><div class="kpi-value" style="font-size:22px">₹28.5L</div><div class="kpi-sub">vs ₹50.22L target</div></div>
+      <div class="kpi-tile"><div class="kpi-label">E-load Received</div><div class="kpi-value" style="font-size:22px">₹4.5L</div><div class="kpi-sub">vs ₹17L target</div></div>
+      <div class="kpi-tile"><div class="kpi-label">Academic Year</div><div class="kpi-value" style="font-size:22px">2023–24</div><div class="kpi-sub">Data up to Feb 2024</div></div>
+    </div>
+
+    <!-- Achievement Distribution -->
+    <div class="chart-card" aria-labelledby="achDistTitle">
+      <div class="section-header">
+        <h2 class="section-title" id="achDistTitle">Faculty Achievement Distribution</h2>
+        <span class="count-chip">Total: <strong>195</strong> faculty</span>
+      </div>
+      <div class="ach-bar-wrap" role="list" aria-label="Faculty achievement distribution by level">
+        <div class="ach-row" role="listitem">
+          <div class="ach-label" style="color:var(--green-text)">≥ 100% achieved</div>
+          <div class="ach-track"><div class="ach-fill" style="background:var(--green-text);width:16.4%"></div></div>
+          <div class="ach-count badge badge-green">32 &nbsp;<span style="font-weight:400;opacity:.7">(16%)</span></div>
+        </div>
+        <div class="ach-row" role="listitem">
+          <div class="ach-label" style="color:var(--amber-text)">≥ 80% achieved</div>
+          <div class="ach-track"><div class="ach-fill" style="background:var(--amber-text);width:31.8%"></div></div>
+          <div class="ach-count badge badge-amber">62 &nbsp;<span style="font-weight:400;opacity:.7">(32%)</span></div>
+        </div>
+        <div class="ach-row" role="listitem">
+          <div class="ach-label" style="color:var(--orange-text)">≥ 60% achieved</div>
+          <div class="ach-track"><div class="ach-fill" style="background:var(--orange-text);width:13.3%"></div></div>
+          <div class="ach-count badge badge-orange">26 &nbsp;<span style="font-weight:400;opacity:.7">(13%)</span></div>
+        </div>
+        <div class="ach-row" role="listitem">
+          <div class="ach-label" style="color:var(--red-text)">&lt; 60% achieved</div>
+          <div class="ach-track"><div class="ach-fill" style="background:var(--red-text);width:38.5%"></div></div>
+          <div class="ach-count badge badge-red">75 &nbsp;<span style="font-weight:400;opacity:.7">(38%)</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Department Achievement Table -->
+    <div class="chart-card">
+      <div class="section-header">
+        <h2 class="section-title">Department Achievement Table</h2>
+        <span class="section-sub">Click a department name to view details</span>
+      </div>
+      <div class="table-wrap" id="deptTableWrap">
+        <div class="spinner-overlay"><div class="spinner"></div><span class="spinner-label">Loading department data…</span></div>
+      </div>
+    </div>
+
+    <!-- Pending Items -->
+    <div class="chart-card">
+      <div class="section-header">
+        <h2 class="section-title">Pending Items Summary</h2>
+        <span class="section-sub">Negative = target exceeded · Positive = still pending</span>
+      </div>
+      <div class="table-wrap" id="pendingTableWrap">
+        <div class="spinner-overlay"><div class="spinner"></div><span class="spinner-label">Loading pending data…</span></div>
+      </div>
+    </div>
+  </main>
+
+  <footer id="footer" role="contentinfo"></footer>
+
+  <script src="app.js"></script>
+  <script src="dashboard.js"></script>
+</body>
+</html>

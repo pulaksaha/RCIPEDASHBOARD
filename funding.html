@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Funding &amp; Proposals – RCPIE Portal · CMR Institute of Technology · AY 2023–24</title>
+  <meta name="description" content="Research funding proposals and sanctions for CMR Institute of Technology AY 2023–24."/>
+  <link rel="stylesheet" href="style.css"/>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+</head>
+<body>
+  <nav id="navbar" role="navigation"></nav>
+
+  <main class="page-wrapper">
+    <h1 class="page-title">Funding &amp; Proposals</h1>
+    <p class="page-subtitle">Research funding proposals, status tracking, and agency breakdown · AY 2023–24</p>
+
+    <!-- Summary tiles -->
+    <div class="kpi-grid" style="margin-bottom:20px" id="fundingSummary">
+      <div class="kpi-tile">
+        <div class="kpi-label">Total Proposals</div>
+        <div class="kpi-value">82</div>
+      </div>
+      <div class="kpi-tile">
+        <div class="kpi-label">Total Sanctioned</div>
+        <div class="kpi-value">₹106L</div>
+      </div>
+      <div class="kpi-tile">
+        <div class="kpi-label">Approved / Sanctioned</div>
+        <div class="kpi-value">7</div>
+      </div>
+      <div class="kpi-tile">
+        <div class="kpi-label">Pending Review</div>
+        <div class="kpi-value" id="pendingReviewCount">—</div>
+      </div>
+    </div>
+
+    <!-- Filters -->
+    <div class="filter-bar" role="search" aria-label="Filter funding proposals">
+      <input type="text" id="fundingSearch" placeholder="Search faculty or agency…" aria-label="Search by faculty name or agency name"/>
+      <select id="fundingDeptFilter" aria-label="Filter by department">
+        <option value="">All Departments</option>
+      </select>
+      <select id="agencyTypeFilter" aria-label="Filter by agency type">
+        <option value="">All Agency Types</option>
+        <option>Government Funding</option>
+        <option>Central Govt</option>
+        <option>Social Funding</option>
+        <option>AICTE</option>
+        <option>DST</option>
+        <option>SERB</option>
+      </select>
+      <div class="filter-pills" id="fundingStatusPills" role="group" aria-label="Filter by proposal status">
+        <span>Status:</span>
+      </div>
+    </div>
+
+    <div class="section-header" style="margin-bottom:8px">
+      <span class="count-chip" id="fundingCount">Showing — proposals</span>
+    </div>
+
+    <div class="table-wrap" id="fundingTableWrap">
+      <div class="spinner-overlay"><div class="spinner"></div><span class="spinner-label">Loading proposals from Google Sheets…</span></div>
+    </div>
+
+    <hr class="divider"/>
+
+    <!-- Agency breakdown chart -->
+    <div class="chart-card">
+      <h2 class="section-title" style="margin-bottom:16px">Proposal Count by Agency Type</h2>
+      <div class="chart-canvas-wrap" style="height:220px;position:relative">
+        <canvas id="agencyChart" aria-label="Bar chart showing proposal count by agency type"></canvas>
+      </div>
+    </div>
+  </main>
+
+  <footer id="footer" role="contentinfo"></footer>
+
+  <script src="app.js"></script>
+  <script src="funding.js"></script>
+</body>
+</html>
