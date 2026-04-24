@@ -3,18 +3,7 @@
    ═══════════════════════════════════════════════ */
 'use strict';
 
-// ── Fallback data ─────────────────────────────
-const CONSULTANCY_BY_DEPT = {
-  ECE: 1852965, ISE: 372357, MCA: 235505, CSE: 101400, MBA: 61384,
-  MAT: 88600,   EEE: 86615,  ME: 39500,   AIML: 4250,
-  PHY: 0,       CHE: 4000,   AIDS: 0,     CV: 0
-};
-
-const ELOAD_BY_DEPT = {
-  ECE: 178000, CSE: 88500, MCA: 62500, EEE: 70500, ISE: 20400,
-  ME: 10000,   MAT: 2000,  PHY: 2000,  CHE: 11000,
-  MBA: 0,      AIML: 0,    AIDS: 0
-};
+// No hardcoded fallback data — all data comes live from Google Sheets
 
 const CONS_COL = {
   faculty: 'Faculty Involved',
@@ -247,18 +236,14 @@ async function loadConsultancy() {
     const rows = await fetchSheet(SHEET_NAMES.CONSULTANCY);
     if (rows.length) {
       const byDept = aggregateByDept(rows, CONS_COL.amount);
-      // Merge with fallback for any missing depts
-      const merged = { ...CONSULTANCY_BY_DEPT, ...byDept };
-      buildConsultancyChart(merged);
+      buildConsultancyChart(byDept);
       renderConsultancyTable(rows);
     } else {
-      buildConsultancyChart(CONSULTANCY_BY_DEPT);
-      wrap.innerHTML = '<div class="no-data">No consultancy rows returned. Showing chart from known totals.</div>';
+      wrap.innerHTML = '<div class="no-data">No consultancy rows returned from the sheet.</div>';
     }
   } catch(e) {
-    console.warn('Consultancy fetch error, using fallback:', e);
-    buildConsultancyChart(CONSULTANCY_BY_DEPT);
-    showError(wrap, 'Unable to load live consultancy data. Chart shows known totals. Configure SCRIPT_URL in app.js.');
+    console.error('Consultancy fetch error:', e);
+    showError(wrap, 'Unable to load consultancy data from Google Sheets. Please check the Apps Script deployment.');
   }
 }
 
@@ -270,17 +255,14 @@ async function loadEload() {
     const rows = await fetchSheet(SHEET_NAMES.ENTREPRENEURSHIP);
     if (rows.length) {
       const byDept = aggregateByDept(rows, ELOAD_COL.revenue);
-      const merged = { ...ELOAD_BY_DEPT, ...byDept };
-      buildEloadChart(merged);
+      buildEloadChart(byDept);
       renderEloadTable(rows);
     } else {
-      buildEloadChart(ELOAD_BY_DEPT);
-      wrap.innerHTML = '<div class="no-data">No E-load rows returned. Showing chart from known totals.</div>';
+      wrap.innerHTML = '<div class="no-data">No E-load rows returned from the sheet.</div>';
     }
   } catch(e) {
-    console.warn('E-load fetch error, using fallback:', e);
-    buildEloadChart(ELOAD_BY_DEPT);
-    showError(wrap, 'Unable to load live E-load data. Chart shows known totals. Configure SCRIPT_URL in app.js.');
+    console.error('E-load fetch error:', e);
+    showError(wrap, 'Unable to load E-load data from Google Sheets. Please check the Apps Script deployment.');
   }
 }
 
