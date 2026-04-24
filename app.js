@@ -6,7 +6,7 @@
 'use strict';
 
 // ── CONFIG ──────────────────────────────────────
-const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzkd6QyspXOEzADfVnKBLCwktuFqMGUiJSJKGCZX_c7LrkpxCA5jLwMMjUv8ZUjxYG87Q/exec';
+const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbz8F19Bv6PrXLm3yKYVbOJ5i_uvhpeuidvbwPbZ_L9i1Iz_tGq9odguDEVKz9ktqttcOQ/exec';
 
 const SHEET_NAMES = {
   TARGETS: 'Tar. vs Ach.',
